@@ -19,7 +19,8 @@ public class User {
     private String name;
     private String email;
     private String password;
-    
+    private int tasks;
+
     @Enumerated(EnumType.STRING)
     private AccessProfile accessProfile;
 
