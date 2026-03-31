@@ -73,3 +73,5 @@ Devido a alguns compromissos que tive durante o fim de semana e ao momento delic
 4. **Documentação:** 
    Criaria uma documentação detalhada do projeto, explicando as funcionalidades e como executar o projeto com todas as chaamdas da api.
 
+5. **Ajuste de pastas para respeitar o Clean Architecture:**
+Teria ajustado minhas pastas para respeitar o Clean Architecture, dessa forma que fiz tem uma separaçao basica pois acabei desenvolvendo as pressas.
