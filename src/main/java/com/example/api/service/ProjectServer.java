@@ -22,7 +22,8 @@ public class ProjectServer {
     }
 
     public Project findById(Long id) {
-        return repository.findById(id).orElse(null);
+        return repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Project not found with id: " + id));
     }
 
     public void deleteById(Long id) {

@@ -3,6 +3,7 @@ package com.example.api.controller;
 import com.example.api.model.Project;
 import com.example.api.service.ProjectServer;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,23 +20,25 @@ public class ProjectController {
         return service.findAll();
     }
 
-    @GetMapping("/id")
-    public Project findById(@PathVariable Long id) {
-        return service.findById(id);
+    @GetMapping("/{id}")
+    public ResponseEntity<Project> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(service.findById(id));
     }
 
     @PostMapping
-    public Project create(@RequestBody Project project) {
-        return service.save(project);
+    public ResponseEntity<Project> create(@RequestBody Project project) {
+        return ResponseEntity.ok(service.save(project));
     }
 
-    @DeleteMapping("/id")
-    public void deleteById(@PathVariable Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
         service.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/id")
-    public Project update(@PathVariable Long id, @RequestBody Project project) {
-        return service.save(project);
+    @PutMapping("/{id}")
+    public ResponseEntity<Project> update(@PathVariable Long id, @RequestBody Project project) {
+        project.setId(id);
+        return ResponseEntity.ok(service.save(project));
     }
 }
